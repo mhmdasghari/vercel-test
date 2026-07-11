@@ -5,16 +5,12 @@ app = FastAPI()
 
 @app.get("/")
 def root():
-    return {"message": "Hello from Vercel!"}
-
+    return {"hello": "world"}
 
 @app.get("/cpu")
 def cpu():
-    # Burn CPU for ~5 seconds
     end = time.time() + 5
-
     x = 0
     while time.time() < end:
         x += sum(i * i for i in range(10000))
-
-    return {"result": x}
+    return {"x": x}
